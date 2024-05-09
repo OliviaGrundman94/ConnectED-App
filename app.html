@@ -1,0 +1,298 @@
+<!DOCTYPE>
+<html class ="a-fullscreen" foxified>
+    <head>  
+        <script src="aframe.js"></script>
+        
+        <!-- <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script> -->
+        <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v6.2.0/dist/aframe-extras.min.js"></script>
+    </head>
+
+    <body>
+        <a-scene>
+            <a-assets>
+                <img id="watercycle1" src="scene/scene1/Mallorca Water Cycle.jpeg">
+                <img id="riverjourney2_1" src="scene/scene2/Val de la mare Italy.jpg">
+                <img id="riverjourney2_2" src="scene/scene2/cano cristales.jpg">
+                <img id="riverjourney2_3" src="scene/scene2/Mississippi River Delta Mouth.jpg">
+                <img id="shaping3_1" src="scene/scene3/Grand Canyon zoomed out.jpg">
+                <img id="shaping3_2" src="scene/scene3/Grand Canyon.jpg">
+                <img id="shaping3_3" src="scene/scene3/little river canyon alabama.jpg">
+                <img id="meander4_1" src="scene/scene4/River Nile Meander.jpg">
+                <img id="waterfall4_2" src="scene/scene4/Niagara Falls.jpg">
+                <audio id="homepagesound" src="./scene/scene1/homepagesound.wav" preload="auto"></audio>
+                <audio id="watercyclesound" src="./scene/scene1/watercyclesound.wav" preload="auto"></audio>
+                <audio id="italysound" src="./scene/scene2/italysound.wav" preload="auto"></audio>
+                <!-- <audio id="colombiasound" src="./scene/scene2/colombiasound.wav" preload="auto"></audio>
+                <audio id="americasound" src="./scene/scene2/americasound.wav" preload="auto"></audio>
+                <audio id="grandcanyonsound" src="./scene/scene3/grandcanyonsound.wav" preload="auto"></audio>
+                <audio id="grandcanyonclosesound" src="./scene/scene3/grandcanyonclosesound.wav" preload="auto"></audio>
+                <audio id="alabamasound" src="./scene/scene3/alabamasound.wav" preload="auto"></audio>
+                <audio id="meandersound" src="./scene/scene4/meandersound.wav" preload="auto"></audio>
+                <audio id="waterfallsound" src="./scene/scene4/waterfallsound.wav" preload="auto"></audio> -->
+            </a-assets>
+
+
+            <!-- *******************HOME PAGE***************** -->
+
+            <a-entity id="homepage" visible="true" sound="src: #homepagesound">
+                <!-- <a-sound id="homepagesound"src="./scene/scene1/homepagesound.wav" autoplay="true" position="0 2 0"></a-sound> -->
+                <a-entity camera look-controls position="0 2 5"></a-entity>
+                <a-plane position="0 0 10" rotation="90 0 0" width="18" height="60" color="#6BBF59" material="side: double"></a-plane>
+                <!-- RIGHT CYLINDER -->
+                <a-cylinder position="4 3 7" radius="0.2" height="4.2" color="#0B6E4F"></a-cylinder>
+                <!-- LEFT CYLINDER -->
+                <a-cylinder position="-4 3 7" radius="0.2" height="4.2" color="#0B6E4F"></a-cylinder>
+            
+                <a-plane position="0 4. 6 7.5" rotation="0 0 0" width="10" height="2" color="#08A045" scale="1 1 1">
+                    <a-text value="RIVERS AND ROCKS" align="center" position="0 0 0.1" scale="2 2 2" color="white" font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+                </a-plane>
+            
+                <a-entity position="-2.693 0.927 7.509">
+                    <a-sphere radius="0.8" color="#073B3A" onclick="scene1()"></a-sphere>
+                    <a-text value="THE WATER\nCYCLE" align="center" position="0.4 0.2 1.234" color="white" scale="0.7 0.7 0.7"></a-text>
+                </a-entity>
+                
+                <a-entity position="-0.826 0.980 7.797">
+                    <a-sphere radius="0.8" color="#073B3A" onclick="scene2_1()"></a-sphere>
+                    <a-text value="THE RIVER'S\nJOURNEY" align="center" position="0.083 0.2 1.052" color="white" scale="0.7 0.7 0.7"></a-text>
+                </a-entity>
+            
+                <a-entity position="0.985 1 7.797">
+                    <a-sphere radius="0.8" color="#073B3A" onclick="scene3_1()"></a-sphere>
+                    <a-text value="SHAPING THE\nLANDSCAPE" align="center" position="-0.20 0.2 1.098" color="white" scale="0.7 0.7 0.7"></a-text>
+                </a-entity>
+            
+                <a-entity position="3.031 0.979 7.687">
+                    <a-sphere radius="0.8" color="#073B3A" onclick="scene4_1()"></a-sphere>
+                    <a-text value="MEANDERS AND\nWATERFALLS" align="center" position="-0.5 0.2 1.373" color="white" scale="0.7 0.7 0.7"></a-text>
+                </a-entity>
+            
+                <a-torus color="blue" position="-1 1.6 -5" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-torus>
+                <a-sky color="#DDB771"></a-sky>
+                
+            </a-entity>
+            
+            <!-- SCENE ONE -->
+            <a-entity id="scene1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable sound="src: #watercyclesound">
+                <a-sky src="#watercycle1"></a-sky>    
+                <a-entity>
+                    <a-box color="yellow" position="4.6 1.6 -2.5" scale="5 5 5" onclick="homepage()"></a-box>
+                    <a-text value="HOME" color="white" align="center"scale="1 1 1"></a-text>
+                </a-entity>
+                <a-text value="THE WATER CYCLE" position="-22 60 -84" scale="20 20 20"></a-text>
+                <!-- <a-sound id="watercyclesound" src="./scene/scene1/watercyclesound.wav" autoplay="false" position="0 2 0"></a-sound> -->
+                <!-- <a-sphere color="green" position="50 0 -52" scale="5 5 5" onclick="toggleAutoplay('watercyclesound')"></a-sphere> -->
+                <!-- <a-entity id="playButton" onclick="playAudio('watercyclesound')">Play</a-entity>
+                <a-entity id="pauseButton" onclick="pauseAudio('watercyclesound')">Pause</a-entity> -->
+            </a-entity>
+                
+            <!--The River Journey  -->
+            
+            <a-entity id="scene2_1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable" sound="src: #italysound">
+                <a-sky src="#riverjourney2_1"></a-sky>    
+                <a-box color="blue" position="4.6 1.6 -2.5" scale="5 5 5" onclick="scene2_2()"></a-box>
+                <!-- <a-sound id="italysound"src="./scene/scene2/italysound.wav" autoplay="false" position="0 2 0"></a-sound> -->
+                <!-- <a-sphere color="green" position="1 45 -51" scale="5 5 5" onclick="toggleAutoplay('italysound')"></a-sphere> -->
+            </a-entity>
+
+            <a-entity id="scene2_2" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable" sound="src: #colombiasound">
+                <a-sky src="#riverjourney2_2"></a-sky>    
+                <a-box color="yellow" position="4.6 1.6 -2.5" scale="5 5 5" onclick="scene2_3()"></a-box>
+                <!-- <a-sound id="colombiasound"src="./scene/scene2/colombiasound.wav" autoplay="false" position="0 2 0"></a-sound> -->
+                <!-- <a-sphere color="green" position="1 45 -51" scale="5 5 5" onclick="toggleAutoplay('colombiasound')"></a-sphere> -->
+            </a-entity>
+
+            <a-entity id="scene2_3" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable" sound="src: #americasound">
+                <a-sky src="#riverjourney2_3"></a-sky>    
+                <a-box color="pink" position="4.6 1.6 -2.5" scale="5 5 5" onclick="homepage()"></a-box>
+                <!-- <a-sound id="americasound"src="./scene/scene2/americasound.wav" autoplay="false" position="0 2 0"></a-sound> -->
+                <!-- <a-sphere color="green" position="1 45 -51" scale="5 5 5" onclick="toggleAutoplay('americasound')"></a-sphere> -->
+            </a-entity>
+
+
+            <!-- SCENE THREE RIVER SHAPING - CANYONS-->
+            <a-entity id="scene3_1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable">
+                <a-sky src="#shaping3_1"></a-sky>    
+                <a-box color="purple" position="4.6 1.6 -2.5" scale="5 5 5" onclick="scene3_2()"></a-box>
+                <!-- <a-sound id="grandcanyonsound"src="./scene/scene3/grandcanyonsound.wav" autoplay="false" position="0 2 0"></a-sound>
+                <a-sphere color="green" position="1 45 -51" scale="5 5 5" onclick="toggleAutoplay('grandcanyonsound')"></a-sphere> -->
+            </a-entity>
+
+            <a-entity id="scene3_2" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable">
+                <a-sky src="#shaping3_2"></a-sky>    
+                <a-box color="yellow" pposition="4.6 1.6 -2.5" scale="5 5 5" onclick="scene3_3()"></a-box>
+                <!-- <a-sound id="grandcanyonclosesound"src="./scene/scene3/grandcanyonclosesound.wav" autoplay="false" position="0 2 0"></a-sound>
+                <a-sphere color="green" position="1 45 -51" scale="5 5 5" onclick="toggleAutoplay('grandcanyonclosesound')"></a-sphere> -->
+            </a-entity>
+
+            <a-entity id="scene3_3" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable">
+                <a-sky src="#shaping3_3"></a-sky>    
+                <a-box color="blue" position="4.6 1.6 -2.5" scale="5 5 5" onclick="homepage()"></a-box>
+                <!-- <a-sound id="alabamasound"src="./scene/scene3/alabamasound.wav" autoplay="false" position="0 2 0"></a-sound>
+                <a-sphere color="green" position="1 45 -51" scale="5 5 5" onclick="toggleAutoplay('alabamasound')"></a-sphere> -->
+            </a-entity>
+
+            <!-- SCENE FOUR MEANDERS AND WATERFALLS -->
+            <a-entity id="scene4_1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable">
+                <a-sky src="#meander4_1"></a-sky>    
+                <a-box color="green" position="4.6 1.6 -2.5" scale="5 5 5" onclick="scene4_2()"></a-box>
+                <!-- <a-sound id="meandersound" src="./scene/scene4/meandersound.wav" autoplay="false" position="0 2 0"></a-sound>
+                <a-sphere color="green" position="1 45 -51" scale="5 5 5" onclick="toggleAutoplay('meandersound')"></a-sphere> -->
+            </a-entity>
+            <a-entity id="scene4_2" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable">
+                <a-sky src="#waterfall4_2"></a-sky>    
+                <a-box color="red" position="4.6 1.6 -2.5" scale="5 5 5" onclick="homepage()"></a-box>
+                <!-- <a-sound id="waterfallsound" src="./scene/scene4/waterfallsound.wav" autoplay="false" position="0 2 0"></a-sound> -->
+                <!-- <a-sphere color="green" position="1 45 -51" scale="5 5 5" onclick="toggleAutoplay('waterfallsound')"></a-sphere> -->
+            </a-entity>
+
+            <a-camera position="0 2 15" >
+                <a-cursor color="red"> </a-cursor>
+            </a-camera>
+        </a-scene>
+
+
+        <!-- SCENE SWITCH SCRIPT -->
+        <script type="text/javascript">
+
+            function homepage() { // Homepage
+                document.getElementById('homepage').setAttribute('visible', 'true');
+                document.getElementById('scene1').setAttribute('visible', 'false');
+                document.getElementById('scene2_1').setAttribute('visible', 'false');
+                document.getElementById('scene2_2').setAttribute('visible', 'false');
+                document.getElementById('scene2_3').setAttribute('visible', 'false');
+                document.getElementById('scene3_1').setAttribute('visible', 'false');
+                document.getElementById('scene3_2').setAttribute('visible', 'false');
+                document.getElementById('scene3_3').setAttribute('visible', 'false');
+                document.getElementById('scene4_1').setAttribute('visible', 'false');
+                document.getElementById('scene4_2').setAttribute('visible', 'false');
+                
+            }
+            
+
+
+            function scene1() { // Water Cycle
+                document.getElementById('homepage').setAttribute('visible', 'false');
+                document.getElementById('scene1').setAttribute('visible', 'true');
+                document.getElementById('scene2_1').setAttribute('visible', 'false');
+                document.getElementById('scene2_2').setAttribute('visible', 'false');
+                document.getElementById('scene2_3').setAttribute('visible', 'false');
+                document.getElementById('scene3_1').setAttribute('visible', 'false');
+                document.getElementById('scene3_2').setAttribute('visible', 'false');
+                document.getElementById('scene3_3').setAttribute('visible', 'false');
+                document.getElementById('scene4_1').setAttribute('visible', 'false');
+                document.getElementById('scene4_2').setAttribute('visible', 'false');
+                // play the audio when scene1 is visible
+                document.getElementById('watercyclesound').components.sound.playSound();
+            }
+
+            function scene2_1() { // river jounrey italy
+                document.getElementById('homepage').setAttribute('visible', 'false');
+                document.getElementById('scene1').setAttribute('visible', 'false');
+                document.getElementById('scene2_1').setAttribute('visible', 'true');
+                document.getElementById('scene2_2').setAttribute('visible', 'false');
+                document.getElementById('scene2_3').setAttribute('visible', 'false');
+                document.getElementById('scene3_1').setAttribute('visible', 'false');
+                document.getElementById('scene3_2').setAttribute('visible', 'false');
+                document.getElementById('scene3_3').setAttribute('visible', 'false');
+                document.getElementById('scene4_1').setAttribute('visible', 'false');
+                document.getElementById('scene4_2').setAttribute('visible', 'false');
+            }
+
+            function scene2_2() { // river journey colombia
+                document.getElementById('homepage').setAttribute('visible', 'false');
+                document.getElementById('scene1').setAttribute('visible', 'false');
+                document.getElementById('scene2_1').setAttribute('visible', 'false');
+                document.getElementById('scene2_2').setAttribute('visible', 'true');
+                document.getElementById('scene2_3').setAttribute('visible', 'false');
+                document.getElementById('scene3_1').setAttribute('visible', 'false');
+                document.getElementById('scene3_2').setAttribute('visible', 'false');
+                document.getElementById('scene3_3').setAttribute('visible', 'false');
+                document.getElementById('scene4_1').setAttribute('visible', 'false');
+                document.getElementById('scene4_2').setAttribute('visible', 'false');
+            }
+
+            function scene2_3() { // river journey america
+                document.getElementById('homepage').setAttribute('visible', 'false');
+                document.getElementById('scene1').setAttribute('visible', 'false');
+                document.getElementById('scene2_1').setAttribute('visible', 'false');
+                document.getElementById('scene2_2').setAttribute('visible', 'false');
+                document.getElementById('scene2_3').setAttribute('visible', 'true');
+                document.getElementById('scene3_1').setAttribute('visible', 'false');
+                document.getElementById('scene3_2').setAttribute('visible', 'false');
+                document.getElementById('scene3_3').setAttribute('visible', 'false');
+                document.getElementById('scene4_1').setAttribute('visible', 'false');
+                document.getElementById('scene4_2').setAttribute('visible', 'false');
+            }
+
+            function scene3_1() { // Shaping the landscape - grand canyon
+                document.getElementById('homepage').setAttribute('visible', 'false');
+                document.getElementById('scene1').setAttribute('visible', 'false');
+                document.getElementById('scene2_1').setAttribute('visible', 'false');
+                document.getElementById('scene2_2').setAttribute('visible', 'false');
+                document.getElementById('scene2_3').setAttribute('visible', 'false');
+                document.getElementById('scene3_1').setAttribute('visible', 'true');
+                document.getElementById('scene3_2').setAttribute('visible', 'false');
+                document.getElementById('scene3_3').setAttribute('visible', 'false');
+                document.getElementById('scene4_1').setAttribute('visible', 'false');
+                document.getElementById('scene4_2').setAttribute('visible', 'false');
+            }
+
+            function scene3_2() { // Shaping the landscape - grand canyon
+                document.getElementById('homepage').setAttribute('visible', 'false');
+                document.getElementById('scene1').setAttribute('visible', 'false');
+                document.getElementById('scene2_1').setAttribute('visible', 'false');
+                document.getElementById('scene2_2').setAttribute('visible', 'false');
+                document.getElementById('scene2_3').setAttribute('visible', 'false');
+                document.getElementById('scene3_1').setAttribute('visible', 'false');
+                document.getElementById('scene3_2').setAttribute('visible', 'true');
+                document.getElementById('scene3_3').setAttribute('visible', 'false');
+                document.getElementById('scene4_1').setAttribute('visible', 'false');
+                document.getElementById('scene4_2').setAttribute('visible', 'false');
+            }
+
+            function scene3_3() { // Shaping the landscape - alabama
+                document.getElementById('homepage').setAttribute('visible', 'false');
+                document.getElementById('scene1').setAttribute('visible', 'false');
+                document.getElementById('scene2_1').setAttribute('visible', 'false');
+                document.getElementById('scene2_2').setAttribute('visible', 'false');
+                document.getElementById('scene2_3').setAttribute('visible', 'false');
+                document.getElementById('scene3_1').setAttribute('visible', 'false');
+                document.getElementById('scene3_2').setAttribute('visible', 'false');
+                document.getElementById('scene3_3').setAttribute('visible', 'true');
+                document.getElementById('scene4_1').setAttribute('visible', 'false');
+                document.getElementById('scene4_2').setAttribute('visible', 'false');
+            }
+
+            function scene4_1() { // Meander  nile
+                document.getElementById('homepage').setAttribute('visible', 'false');
+                document.getElementById('scene1').setAttribute('visible', 'false');
+                document.getElementById('scene2_1').setAttribute('visible', 'false');
+                document.getElementById('scene2_2').setAttribute('visible', 'false');
+                document.getElementById('scene2_3').setAttribute('visible', 'false');
+                document.getElementById('scene3_1').setAttribute('visible', 'false');
+                document.getElementById('scene3_2').setAttribute('visible', 'false');
+                document.getElementById('scene3_3').setAttribute('visible', 'false');
+                document.getElementById('scene4_1').setAttribute('visible', 'true');
+                document.getElementById('scene4_2').setAttribute('visible', 'false');
+            }
+
+            function scene4_2() { // Waterfall niagara
+                document.getElementById('homepage').setAttribute('visible', 'false');
+                document.getElementById('scene1').setAttribute('visible', 'false');
+                document.getElementById('scene2_1').setAttribute('visible', 'false');
+                document.getElementById('scene2_2').setAttribute('visible', 'false');
+                document.getElementById('scene2_3').setAttribute('visible', 'false');
+                document.getElementById('scene3_1').setAttribute('visible', 'false');
+                document.getElementById('scene3_2').setAttribute('visible', 'false');
+                document.getElementById('scene3_3').setAttribute('visible', 'false');
+                document.getElementById('scene4_1').setAttribute('visible', 'false');
+                document.getElementById('scene4_2').setAttribute('visible', 'true');
+            }
+
+          
+
+
+        </script>
+    </body>
+</html>
