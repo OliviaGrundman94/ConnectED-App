@@ -22,20 +22,20 @@
                 <audio id="homepagesound" src="./scene/scene1/homepagesound.wav" preload="auto"></audio>
                 <audio id="watercyclesound" src="./scene/scene1/watercyclesound.wav" preload="auto"></audio>
                 <audio id="italysound" src="./scene/scene2/italysound.wav" preload="auto"></audio>
-                <!-- <audio id="colombiasound" src="./scene/scene2/colombiasound.wav" preload="auto"></audio>
+                <audio id="colombiasound" src="./scene/scene2/colombiasound.wav" preload="auto"></audio>
                 <audio id="americasound" src="./scene/scene2/americasound.wav" preload="auto"></audio>
                 <audio id="grandcanyonsound" src="./scene/scene3/grandcanyonsound.wav" preload="auto"></audio>
                 <audio id="grandcanyonclosesound" src="./scene/scene3/grandcanyonclosesound.wav" preload="auto"></audio>
                 <audio id="alabamasound" src="./scene/scene3/alabamasound.wav" preload="auto"></audio>
                 <audio id="meandersound" src="./scene/scene4/meandersound.wav" preload="auto"></audio>
-                <audio id="waterfallsound" src="./scene/scene4/waterfallsound.wav" preload="auto"></audio> -->
+                <audio id="waterfallsound" src="./scene/scene4/waterfallsound.wav" preload="auto"></audio>
             </a-assets>
 
 
             <!-- *******************HOME PAGE***************** -->
 
-            <a-entity id="homepage" visible="true" sound="src: #homepagesound">
-                <!-- <a-sound id="homepagesound"src="./scene/scene1/homepagesound.wav" autoplay="true" position="0 2 0"></a-sound> -->
+            <a-entity id="homepage" visible="true">
+                <a-sound id="homepagesound"src="./scene/scene1/homepagesound.wav" autoplay="true" position="0 2 0"></a-sound>
                 <a-entity camera look-controls position="0 2 5"></a-entity>
                 <a-plane position="0 0 10" rotation="90 0 0" width="18" height="60" color="#6BBF59" material="side: double"></a-plane>
                 <!-- RIGHT CYLINDER -->
@@ -67,13 +67,15 @@
                     <a-text value="MEANDERS AND\nWATERFALLS" align="center" position="-0.5 0.2 1.373" color="white" scale="0.7 0.7 0.7"></a-text>
                 </a-entity>
             
-                <a-torus color="blue" position="-1 1.6 -5" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-torus>
-                <a-sky color="#DDB771"></a-sky>
+                <a-torus color="#196B69" position="10 3.9 5.4" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-torus>
+                <a-torus color="#196B69" position="-10 3.9 5.4" rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-torus>
+                
+                <a-sky color="#DDFEE4"></a-sky>
                 
             </a-entity>
             
             <!-- SCENE ONE -->
-            <a-entity id="scene1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable sound="src: #watercyclesound">
+            <a-entity id="scene1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable" sound="src: #watercyclesound">
                 <a-sky src="#watercycle1"></a-sky>    
                 <a-entity>
                     <a-box color="yellow" position="4.6 1.6 -2.5" scale="5 5 5" onclick="homepage()"></a-box>
@@ -166,7 +168,8 @@
                 document.getElementById('scene3_3').setAttribute('visible', 'false');
                 document.getElementById('scene4_1').setAttribute('visible', 'false');
                 document.getElementById('scene4_2').setAttribute('visible', 'false');
-                
+                // document.getElementById('homepagesound').components.sound.playSound();
+            
             }
             
 
@@ -183,7 +186,10 @@
                 document.getElementById('scene4_1').setAttribute('visible', 'false');
                 document.getElementById('scene4_2').setAttribute('visible', 'false');
                 // play the audio when scene1 is visible
-                document.getElementById('watercyclesound').components.sound.playSound();
+                // document.getElementById('watercyclesound').components.sound.playSound();
+                  // Play the audio for scene1
+                // var watercyclesound = document.getElementById('watercyclesound');
+                //     playSound(watercyclesound);
             }
 
             function scene2_1() { // river jounrey italy
@@ -289,8 +295,83 @@
                 document.getElementById('scene4_1').setAttribute('visible', 'false');
                 document.getElementById('scene4_2').setAttribute('visible', 'true');
             }
+            // Function to play sound
+          // Function to play sound
+function playSound(audioElement) {
+    // Check if the AudioContext is in suspended state
+    if (audioElement.context.state === 'suspended') {
+        // If suspended, try to resume it
+        audioElement.context.resume().then(() => {
+            console.log('AudioContext resumed');
+            audioElement.play();
+        });
+    } else {
+        // If not suspended, just play the audio
+        audioElement.play();
+    }
+}
 
-          
+// Function to switch scenes and play sound
+function switchScene(sceneId, audioElement) {
+    // Hide all scenes
+    document.querySelectorAll('a-scene').forEach(scene => {
+        scene.setAttribute('visible', 'false');
+    });
+    // Show the scene with the given ID
+    document.getElementById(sceneId).setAttribute('visible', 'true');
+    // Play the audio
+    playSound(audioElement);
+}
+
+// Function to handle homepage
+function homepage() {
+    switchScene('homepage', document.getElementById('homepagesound'));
+}
+
+// Function to handle scene1
+function scene1() {
+    switchScene('scene1', document.getElementById('watercyclesound'));
+}
+
+// Function to handle scene2_1
+function scene2_1() {
+    switchScene('scene2_1', document.getElementById('italysound'));
+}
+
+// Function to handle scene2_2
+function scene2_2() {
+    switchScene('scene2_2', document.getElementById('colombiasound'));
+}
+
+// Function to handle scene2_3
+function scene2_3() {
+    switchScene('scene2_3', document.getElementById('americasound'));
+}
+
+// Function to handle scene3_1
+function scene3_1() {
+    switchScene('scene3_1', document.getElementById('grandcanyonsound'));
+}
+
+// Function to handle scene3_2
+function scene3_2() {
+    switchScene('scene3_2', document.getElementById('grandcanyonclosesound'));
+}
+
+// Function to handle scene3_3
+function scene3_3() {
+    switchScene('scene3_3', document.getElementById('alabamasound'));
+}
+
+// Function to handle scene4_1
+function scene4_1() {
+    switchScene('scene4_1', document.getElementById('meandersound'));
+}
+
+// Function to handle scene4_2
+function scene4_2() {
+    switchScene('scene4_2', document.getElementById('waterfallsound'));
+}
 
 
         </script>
