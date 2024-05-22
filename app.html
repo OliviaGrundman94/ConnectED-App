@@ -75,7 +75,7 @@
             </a-entity>
             
             <!-- SCENE ONE -->
-            <a-entity id="scene1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable" sound="src: #watercyclesound">
+            <a-entity id="scene1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable">
                 <a-sky src="#watercycle1"></a-sky>    
                 <a-entity>
                     <a-box color="yellow" position="4.6 1.6 -2.5" scale="5 5 5" onclick="homepage()"></a-box>
@@ -90,7 +90,7 @@
                 
             <!--The River Journey  -->
             
-            <a-entity id="scene2_1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable" sound="src: #italysound">
+            <a-entity id="scene2_1" position="0 -1 0" visible="false" scale="1 1 1" raycaster="objects: .raycastable" >
                 <a-sky src="#riverjourney2_1"></a-sky>    
                 <a-box color="blue" position="4.6 1.6 -2.5" scale="5 5 5" onclick="scene2_2()"></a-box>
                 <!-- <a-sound id="italysound"src="./scene/scene2/italysound.wav" autoplay="false" position="0 2 0"></a-sound> -->
@@ -169,11 +169,8 @@
                 document.getElementById('scene4_1').setAttribute('visible', 'false');
                 document.getElementById('scene4_2').setAttribute('visible', 'false');
                 // document.getElementById('homepagesound').components.sound.playSound();
-            
             }
             
-
-
             function scene1() { // Water Cycle
                 document.getElementById('homepage').setAttribute('visible', 'false');
                 document.getElementById('scene1').setAttribute('visible', 'true');
