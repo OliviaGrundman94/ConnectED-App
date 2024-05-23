@@ -18,7 +18,7 @@ ConnectED is an innovative educational platform designed to deliver immersive vi
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/[your-username]/ConnectED.git
+   git clone https://github.com/OliviaGrundman94/ConnectED-App.git
    ```
 
 2. **Install Dependencies:**
